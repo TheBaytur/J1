@@ -9,18 +9,28 @@ public class Truck extends Transport{
     public Truck(int weight, byte[] coordinate,  boolean isLoaded) {
         super(weight, coordinate);
         this.isLoaded = isLoaded;
+    }
 
+    public void setValues(float speed,int weight, String color, byte[] coordinate, boolean isLoaded){
+        super.setValues(speed, weight, color, coordinate);
+        this.isLoaded = isLoaded;
+    }
+
+    @Override
+    public String getValues() {
+        System.out.println(super.getValues());
+        return getLoaded();
     }
 
     public void setLoaded(boolean loaded){
         isLoaded = loaded;
     }
 
-    public void getLoaded(){
+    public String getLoaded(){
         if(isLoaded)
-            System.out.println("Truck loaded");
+            return "Truck loaded";
         else
-            System.out.println("Truck not loaded");
+            return "Truck not loaded";
     }
 
 }
