@@ -1,6 +1,9 @@
 public class Truck extends Transport{
 
     private boolean isLoaded;
+    public Engine engine = new Engine();
+
+
 
     public Truck(int weight, byte[] coordinate) {
         super(weight, coordinate);
@@ -9,6 +12,17 @@ public class Truck extends Transport{
     public Truck(int weight, byte[] coordinate,  boolean isLoaded) {
         super(weight, coordinate);
         this.isLoaded = isLoaded;
+    }
+
+    @Override
+    public void moveObject(float speed) {
+        System.out.println("Object moving with speed: " + speed);
+    }
+
+    @Override
+    public boolean stopObject() {
+        this.speed = 0;
+        return true;
     }
 
     public void setValues(float speed,int weight, String color, byte[] coordinate, boolean isLoaded){

@@ -1,16 +1,20 @@
 import java.sql.SQLOutput;
-public class Transport {
+public abstract class Transport {
 
-    private float speed;
+    protected float speed;
     private int weight;
     public String color;
     private byte[] coordinate;
+
 
     public Transport(float _speed, int _weight, String _color, byte[] _coordinate){
         System.out.println("Object created");
         setValues(_speed, _weight, _color, _coordinate);
 //        System.out.println(getValues());
     }
+
+    public abstract void moveObject(float speed);
+    public abstract boolean stopObject();
 
     public Transport(int weight, byte[] coordinate){
         this.weight = weight;
@@ -36,5 +40,21 @@ public class Transport {
         return info + infoCoorfinates;
     }
 
+    class Engine {
+        private boolean isReady;
+        private int km;
+
+        public void setValues(boolean isReady, int km){
+            this.isReady = isReady;
+            this.km = km;
+        }
+
+        public void info() {
+            if(isReady)
+            System.out.println("Engine is ready");
+            else
+            System.out.println("Engine if off, Drived " + km + "km");
+        }
+    }
 
 }
