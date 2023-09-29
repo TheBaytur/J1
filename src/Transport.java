@@ -7,6 +7,8 @@ public abstract class Transport {
     private byte[] coordinate;
 
 
+
+
     public Transport(float _speed, int _weight, String _color, byte[] _coordinate){
         System.out.println("Object created");
         setValues(_speed, _weight, _color, _coordinate);
@@ -44,6 +46,10 @@ public abstract class Transport {
         private boolean isReady;
         private int km;
 
+        public void isReady(boolean isReady){
+            this.isReady = isReady;
+        }
+
         public void setValues(boolean isReady, int km){
             this.isReady = isReady;
             this.km = km;
@@ -53,7 +59,7 @@ public abstract class Transport {
             if(isReady)
             System.out.println("Engine is ready");
             else
-            System.out.println("Engine if off, Drived " + km + "km");
+            System.out.println("Engine is off, Drived " + km + " km");
         }
     }
 
